@@ -20,7 +20,9 @@ class Ptp:
         if not self.session or self.__expired():
             self.session = requests.Session()
             try:
-                req = self.session.post(self.ptpbase + self.ptplogin, data={"username": username, "password" : password, "passkey" : passkey})
+                req = self.session.post(self.ptpbase + self.ptplogin, 
+data={"username": username, "password" : password, "passkey" : passkey, 
+'keeplogged' : '1'})
                 if req.status_code == 403:
                     raise ValueError("Error")
             except ValueError as err:
