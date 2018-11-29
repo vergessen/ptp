@@ -6,3 +6,4 @@ ptp = {'username': '',
        'password': '',
        'passkey': ''}
 
+omdbapi = {'api' : ''}
