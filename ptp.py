@@ -48,17 +48,3 @@ class Ptp:
         except:
             return None
 
-if __name__ == "__main__":
-    username = ''
-    password = ''
-    passkey  = ''
-    ptptemplate = 'https://passthepopcorn.me/torrents.php?id=%s&torrentid=%s'
-    ptp = Ptp(username,password,passkey)
-    movie = ptp.search('tt1860357')
-#BEGIN SORT MAGIC
-    value = sorted( movie['Movies'][0]['Torrents'], key=lambda k:  k['Resolution'], reverse=False)
-    for x in value:
-#END SORT MAGIC
-         print("%s : Golden: %s : Res: %s : Scene: %s : Link %s" % (x['ReleaseName'], x['GoldenPopcorn'], x['Resolution'], x['Scene'], ptptemplate % (movie['Movies'][0]['GroupId'],x['Id'])))
-
-
