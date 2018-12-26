@@ -9,7 +9,7 @@ omdb = 'http://www.omdbapi.com/?apikey=%s&t=%s'
 
 r = requests.get(omdb % (cfg.omdbapi['key'], ' '.join(sys.argv[1:])))
 if (r.json()['Response']) != 'False':
-    ptp = ptp.Ptp(cfg.ptp['username'],cfg.ptp['password'],cfg.ptp['passkey'])
+    ptp = ptp.Ptp(cfg.ptp['ApiUser'],cfg.ptp['ApiKey'])
     movie = ptp.search(r.json()['imdbID'])
     if movie != None:
 #BEGIN SORT MAGIC
